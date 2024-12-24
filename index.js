@@ -4,8 +4,13 @@
 3. Create a txt file to save the user input using the native fs node module.
 */
 import inquirer from 'inquirer';
+import express from 'express'
 import fs from 'fs';
 import qr from 'qr-image';
+
+const app = express();
+const port = 3000;
+
 
 inquirer
   .prompt([
@@ -23,3 +28,9 @@ inquirer
       // Something else went wrong
     }
   });
+
+app.listen(port,() => {
+  console.log( `listening on port ${port}`);
+})
+
+
